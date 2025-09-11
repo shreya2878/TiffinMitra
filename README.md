@@ -1,6 +1,6 @@
 🍴 Student Tiffin Service Finder
 
-https://www.freepik.com/free-vector/man-delivering-food-while-wearing-medical-mask_8623830.htm#fromView=search&page=1&position=20&uuid=e2f11418-66b1-4b1c-9e54-0eeb027d643c&query=food+delivery
+![3957701](https://github.com/user-attachments/assets/55413b72-cad9-49eb-b2cb-72a4a84cc2bf)
 
  
 A web-based platform designed to help students of GLA University, Mathura and nearby areas find reliable and affordable tiffin services in one place. The platform ensures convenience, trust, and transparency with an admin-managed system.
