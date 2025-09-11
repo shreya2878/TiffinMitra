@@ -1,5 +1,5 @@
 🍴 Student Tiffin Service Finder
-
+ 
 A web-based platform designed to help students of GLA University, Mathura and nearby areas find reliable and affordable tiffin services in one place. The platform ensures convenience, trust, and transparency with an admin-managed system.
 
 🚀 Why This Project?
