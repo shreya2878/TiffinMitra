@@ -6,17 +6,17 @@ import ResetPassword from './pages/ResetPassword';
 import EmailVerify from './pages/EmailVerify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AppContextProvider } from './context/AppContext'; // ✅ import context provider
+import { AppContextProvider } from './context/AppContext';  // ✅ FIXED NAME
 
 const App = () => {
   return (
-    <AppContextProvider>  {/* ✅ Wrap everything in context */}
+    <AppContextProvider>  {/* ✅ FIXED NAME */}
       <div>
         <ToastContainer
           position="bottom-right"
           autoClose={3000}
-          hideProgressBar={false}  
-          newestOnTop={false}      
+          hideProgressBar={false}
+          newestOnTop={false}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
@@ -25,14 +25,14 @@ const App = () => {
           theme="colored"
         />
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/email-verify' element={<EmailVerify/>}/>
-          <Route path='/reset-password' element={<ResetPassword/>}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/email-verify' element={<EmailVerify />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
         </Routes>
       </div>
     </AppContextProvider>
   );
-}
+};
 
 export default App;

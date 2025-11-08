@@ -3,30 +3,27 @@ import axios from "axios";
 
 export const AppContent = createContext();
 
-export const AppContextProvider = ({ children }) => {
-  const backendUrl = "http://localhost:5000"
+export const AppContextProvider = ({ children, backendUrl: backendUrlProp }) => {
+  const backendUrl =
+    backendUrlProp || import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);
 
-  // 🔹 ek axios instance banaya (baar-baar likhne ki jarurat nahi)
   const api = axios.create({
-    baseURL: backendUrl,
+    baseURL: `${backendUrl}/api`,
     withCredentials: true,
   });
 
-  // ✅ Check user auth state
   const getAuthState = async () => {
     try {
-      const token = localStorage.getItem("token");
-      if (!token) return;
-
-      const { data } = await api.get("/auth/is-auth", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      // We rely on the auth cookie set by the server. axios instance has withCredentials=true
+      const { data } = await api.get("/auth/is-auth");
 
       if (data.success) {
+        // mark logged in and fetch full user data
         setIsLoggedin(true);
-        setUserData(data.user);
+        await getUserData();
       } else {
         setIsLoggedin(false);
         setUserData(null);
@@ -38,18 +35,15 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
-  // ✅ Fetch user data
   const getUserData = async () => {
     try {
-      const token = localStorage.getItem("token");
-      if (!token) return;
+      // server responds with { success: true, data: user }
+      const resp = await api.get("/user/data");
 
-      const { data } = await api.get("/auth/user-data", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      if (data.success) {
-        setUserData(data.user);
+      if (resp.data && resp.data.success) {
+        setUserData(resp.data.data);
+      } else {
+        setUserData(null);
       }
     } catch (error) {
       console.error("Error fetching user data:", error);

@@ -6,7 +6,7 @@ const Header = () => {
   const { userData, getAuthState } = useContext(AppContent);
 
   useEffect(() => {
-    getAuthState(); // fetch user data on mount
+    getAuthState();
   }, []);
 
   return (
@@ -35,7 +35,6 @@ const Header = () => {
         Get started
       </button>
 
-      {/* Inline CSS for hand wave animation */}
       <style>{`
         @keyframes handWave {
           0% { transform: rotate(0deg); }
@@ -48,7 +47,7 @@ const Header = () => {
         }
         .animate-hand-wave {
           display: inline-block;
-          transform-origin: 70% 70%; /* pivot point of rotation */
+          transform-origin: 70% 70%;
           animation: handWave 2s infinite;
         }
       `}</style>

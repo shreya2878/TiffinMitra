@@ -7,12 +7,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { userData, setIsLoggedin, setUserData } = useContext(AppContent);
 
-  // Optional: logout on clicking the avatar
   const handleLogout = () => {
-    localStorage.removeItem("token"); // remove token
-    setIsLoggedin(false);             // update auth state
-    setUserData(null);                // clear user data
-    navigate("/login");               // redirect to login
+    localStorage.removeItem("token");
+    setIsLoggedin(false);
+    setUserData(null);
+    navigate("/");
   };
 
   return (
@@ -25,16 +24,14 @@ const Navbar = () => {
       />
 
       {userData ? (
-        // Show first letter of name in a circle
         <div 
           className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold cursor-pointer"
-          onClick={handleLogout} // optional: click to logout
+          onClick={handleLogout}
           title="Click to logout"
         >
           {userData.name?.[0]?.toUpperCase()}
         </div>
       ) : (
-        // Show Login button if not logged in
         <button 
           onClick={() => navigate('/login')}
           className='flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100'
