@@ -1,1 +1,3 @@
 .env
+MONGO_URI=mongodb+srv://shreya123:MyPass@cluster0.mongodb.net/FoodWeb
+PORT=5000

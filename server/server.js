@@ -1,7 +1,9 @@
 // server.js
+import "dotenv/config";
+console.log("Environment variables loaded");
+
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
