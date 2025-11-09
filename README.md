@@ -60,4 +60,5 @@ Owners can add and manage services, students can search and bookmark options, an
 
 Provides a real-life solution to make student life outside hostels more convenient.
 
-✨ This project focuses only on Tiffin Services as the first phase (MVP), with potential for future expansion.
+✨ This project focuses only on Tiffin Services as the first phase (MVP), with potential for future expansion.  
+
